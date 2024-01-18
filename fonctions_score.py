@@ -44,10 +44,11 @@ def score_petite_suite(dices: list):
     #print(f"count : {count}")
     return 0
 
-def score_full(dices: list):
-    # print()
-    # print("score_full")
-    # print(f"{dices}")
+# 
+def score_full_carre_brelan(dices: list):
+    print()
+    print("score_full")
+    print(f"{dices}")
     dices.sort()
 
     # on met un dés dans le premier numéro
@@ -67,12 +68,32 @@ def score_full(dices: list):
             count1+=1
         elif r == deuxieme_numero_de_des:
             count2+=1
-    #print(f"count1 {premier_numero_de_des} {count1} count2 {deuxieme_numero_de_des} {count2}")
+
+    print(f"dé n°1={premier_numero_de_des}x{count1}; dé n°2={deuxieme_numero_de_des}x{count2}")
             
     # bien vérifier qu'on ait 3 dés identiques d'un côté et 2 dés identiques de l'autre côté
     if count1 == 3 and count2 == 2:
         return 25
     if count1 == 2 and count2 == 3:
         return 25
+    
+    # pour le carre
+    if count1 == 4:
+        return 4* premier_numero_de_des
+    if count2 == 4:
+        return 4* deuxieme_numero_de_des
+    
+    # vérifier pour le brelan
+    if count1 == 3:
+        return 3* premier_numero_de_des
+    if count2 == 3:
+        return 3* deuxieme_numero_de_des
 
     return 0
+
+def score_chance(dices: list):
+    sum = 0
+    for r in dices:
+        sum+=r
+        
+    return sum
