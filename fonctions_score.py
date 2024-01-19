@@ -4,7 +4,7 @@ def is_yams(dices: list):
     # on mémorise le premier dés
     x=dices[0]
     for r in dices:
-        print(f"x={x} r = {r}")
+        # print(f"x={x} r = {r}")
         # si un dè dans la boucle est différent du premier donc 0
         if r != x:
             return 0
@@ -46,9 +46,9 @@ def score_petite_suite(dices: list):
 
 # 
 def score_full_carre_brelan(dices: list):
-    print()
-    print("score_full")
-    print(f"{dices}")
+    # print()
+    # print("score_full")
+    # print(f"{dices}")
     dices.sort()
 
     # on met un dés dans le premier numéro
@@ -69,7 +69,7 @@ def score_full_carre_brelan(dices: list):
         elif r == deuxieme_numero_de_des:
             count2+=1
 
-    print(f"dé n°1={premier_numero_de_des}x{count1}; dé n°2={deuxieme_numero_de_des}x{count2}")
+    # print(f"dé n°1={premier_numero_de_des}x{count1}; dé n°2={deuxieme_numero_de_des}x{count2}")
             
     # bien vérifier qu'on ait 3 dés identiques d'un côté et 2 dés identiques de l'autre côté
     if count1 == 3 and count2 == 2:
@@ -98,11 +98,11 @@ def score_chance(dices: list):
         
     return sum
 
-def score(dicesFigure: list):
+def score(resultats_relances: list):
     dices=[]
-    for i in range(len(dicesFigure)):
-        dices.append(dicesFigure[i][1])
-    print(dices)    
+    for i in range(len(resultats_relances)):
+        dices.append(resultats_relances[i][1])
+    # print(dices)    
 
     result = is_yams(dices) 
     if result != 0:
@@ -120,6 +120,6 @@ def score(dicesFigure: list):
     if result != 0:
         return result
 
-print (score([(1, 6), (2, 6), (3, 6), (4, 6), (5, 6)]))
-print (score([(1, 6), (2, 5), (3, 4), (4, 3), (5, 2)]))
-print (score([(1, 6), (2, 6), (3, 6), (4, 6), (5, 2)]))
+# print (score([(1, 6), (2, 6), (3, 6), (4, 6), (5, 6)]))
+# print (score([(1, 6), (2, 5), (3, 4), (4, 3), (5, 2)]))
+# print (score([(1, 6), (2, 6), (3, 6), (4, 6), (5, 2)]))
