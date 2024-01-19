@@ -1,5 +1,5 @@
 from typing import Union
-from function import brelan, carre, full, lilSuite, bigSuite, yams, chance, minorFigure
+from functions import brelan, carre, full, lilSuite, bigSuite, yams, chance, minorFigure
 
 
 def test_brelan(dices: list, value: int):

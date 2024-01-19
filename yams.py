@@ -54,3 +54,6 @@ print("Résultats des dés initiaux :", resultats_lancer)
 
 resultats_relances = relancer_des(resultats_lancer)
 print("Résultats après les relances :", resultats_relances)
+
+
+[2,6,4,5,1]
