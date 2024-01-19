@@ -97,3 +97,29 @@ def score_chance(dices: list):
         sum+=r
         
     return sum
+
+def score(dicesFigure: list):
+    dices=[]
+    for i in range(len(dicesFigure)):
+        dices.append(dicesFigure[i][1])
+    print(dices)    
+
+    result = is_yams(dices) 
+    if result != 0:
+        return result
+    result = score_grand_suite(dices)
+    if result != 0:
+        return result
+    result = score_petite_suite(dices)
+    if result != 0:
+        return result
+    result = score_full_carre_brelan(dices)
+    if result != 0:
+        return result
+    result = score_chance(dices)
+    if result != 0:
+        return result
+
+print (score([(1, 6), (2, 6), (3, 6), (4, 6), (5, 6)]))
+print (score([(1, 6), (2, 5), (3, 4), (4, 3), (5, 2)]))
+print (score([(1, 6), (2, 6), (3, 6), (4, 6), (5, 2)]))
