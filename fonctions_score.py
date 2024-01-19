@@ -1,6 +1,6 @@
 
 # les 5 dés doivent etre identiques 
-def is_yams(dices: list):
+def score_yams(dices: list):
     # on mémorise le premier dés
     x=dices[0]
     for r in dices:
@@ -102,9 +102,9 @@ def score(resultats_relances: list):
     dices=[]
     for i in range(len(resultats_relances)):
         dices.append(resultats_relances[i][1])
-    # print(dices)    
-
-    result = is_yams(dices) 
+    # print(dices)
+    
+    result = score_yams(dices) 
     if result != 0:
         return result
     result = score_grand_suite(dices)

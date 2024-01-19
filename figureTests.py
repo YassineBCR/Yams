@@ -1,5 +1,5 @@
 from typing import Union
-from functions import brelan, carre, full, lilSuite, bigSuite, yams, chance, minorFigure
+import fonctions_score as fs
 
 
 def test_brelan(dices: list, value: int):
@@ -21,9 +21,9 @@ def test_brelan(dices: list, value: int):
         assert len(otherValues) == 2
         assert otherValues[0] != value
         assert otherValues[1] != value
-        assert brelan(dices) == value * 3
+        assert fs.score_full_carre_brelan(dices) == value * 3
         
-        return brelan(dices)
+        return fs.score_full_carre_brelann(dices)
     
     except AssertionError:
          print("Brelan invalide !")
@@ -48,9 +48,9 @@ def test_carre(dices: list, value: int):
         assert len(otherValues) == 2
         assert otherValues[0] != value
         assert otherValues[1] != value
-        assert carre(dices) == value * 4
+        assert fs.score_full_carre_brelan(dices) == value * 4
         
-        return carre(dices)
+        return fs.score_full_carre_brelan(dices)
     
     except AssertionError:
          print("Carré invalide !")
@@ -75,9 +75,9 @@ def test_full(dices: list, value: int):
         assert len(otherValues) == 2
         assert otherValues[0] != value
         assert otherValues[1] != value
-        assert full(dices, value) == 25
+        assert fs.score_full_carre_brelan(dices, value) == 25
         
-        return full(dices, value)
+        return fs.score_full_carre_brelan(dices, value)
     
     except AssertionError:
          print("Full invalide !")
@@ -91,30 +91,28 @@ def test_lilSuite(dices: list):
     try :
         assert len(dices) == 4
         assert sum in range(11,25) and sum not in [15,20]
-        assert lilSuite(dices) == 30
+        assert fs.score_petite_suite(dices) == 30
         
-        return lilSuite(dices)
+        return fs.score_petite_suite(dices)
     
     except AssertionError:
          print("Petite Suite invalide !")
 
 
-def test_bigSuite(dices: list):
-    dices.sort()
-    sum = 0
-    for d in dices :
-        sum += dices[d]
-    
-    try :
-        assert len(dices) == 5
-        assert sum in [15,20]
-        assert bigSuite(dices) == 40
-        
-        return bigSuite(dices)
-    
-    except AssertionError:
-         print("Grande Suite invalide !")
+def test_bigSuite():
+    try:
+        assert fs.score_grand_suite([6, 4, 3, 5, 2]) == 40
+        assert fs.score_grand_suite([1, 4, 3, 5, 2]) == 40
+        assert fs.score_grand_suite([2, 4, 3, 5, 2]) == False
+        assert fs.score_grand_suite([2, 4, 3, 3, 2]) == False
 
+        print("fonction grande suite ok")
+        
+    except AssertionError:
+        print("Erreur sur la fonction grande suite")
+        return 0
+
+test_bigSuite()
 
 def test_yams(dices: list, value: int):
     sum = 0
@@ -131,9 +129,9 @@ def test_yams(dices: list, value: int):
         assert len(dices) == 5
         assert sameValue == True
         assert sum == value * 5
-        assert yams(dices, value) == 50
+        assert fs.score_yams(dices, value) == 50
         
-        return yams(dices, value)
+        return fs.score_yams(dices, value)
     
     except AssertionError:
          print("Yams invalide !")
@@ -148,15 +146,15 @@ def test_chance(dices: list):
     try :
         assert len(dices) == 5
         assert sum in range(5,31)
-        assert chance(dices) == 30
+        assert fs.score_chance(dices) == 30
         
-        return chance(dices)
+        return fs.score_chance(dices)
     
     except AssertionError:
          print("Chance invalide !")
 
 
-def test_minorFigure(dices: list,value: int):
+'''def test_minorFigure(dices: list,value: int):
     dices.sort()
     sum = 0
     count = 0
@@ -175,3 +173,4 @@ def test_minorFigure(dices: list,value: int):
     
     except AssertionError:
         print("Figure mineure invalide !")
+'''
