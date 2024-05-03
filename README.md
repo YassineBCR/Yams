@@ -22,8 +22,3 @@ To deploy this project run
 ```bash
   python dicesThrow.py
 ```
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
